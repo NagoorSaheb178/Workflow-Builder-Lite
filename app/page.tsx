@@ -13,7 +13,7 @@ import {
     Settings2,
     FileText,
     Sparkles,
-    ListFilter,
+    ListOrdered,
     Tags,
     Workflow
 } from "lucide-react";
@@ -49,7 +49,7 @@ const STEP_OPTIONS: Record<StepType, { label: string; icon: any; defaultPrompt: 
     },
     extract_points: {
         label: "Extract Points",
-        icon: ListFilter,
+        icon: ListOrdered,
         defaultPrompt: "Extract 3-5 key bullet points from the text."
     },
     tag_category: {
@@ -58,6 +58,8 @@ const STEP_OPTIONS: Record<StepType, { label: string; icon: any; defaultPrompt: 
         defaultPrompt: "Suggest 3 relevant tags or categories for this content."
     },
 };
+
+const STEP_TYPES: StepType[] = ["clean_text", "summarize", "extract_points", "tag_category"];
 
 export default function Home() {
     const [inputText, setInputText] = useState("");
@@ -287,7 +289,7 @@ export default function Home() {
                         </div>
 
                         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-                            {(Object.keys(STEP_OPTIONS) as StepType[]).map((type) => (
+                            {STEP_TYPES.map((type) => (
                                 <button
                                     key={type}
                                     onClick={() => addStep(type)}
