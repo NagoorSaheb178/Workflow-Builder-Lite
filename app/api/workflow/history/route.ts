@@ -8,13 +8,8 @@ export async function GET(request: Request) {
         const client = await clientPromise;
         const db = client.db("flowrunner");
 
-        const { searchParams } = new URL(request.url);
-        const sessionId = searchParams.get("sessionId");
-
-        const query = sessionId ? { sessionId } : {};
-
         const history = await db.collection("history")
-            .find(query)
+            .find({})
             .sort({ createdAt: -1 })
             .limit(20)
             .toArray();
