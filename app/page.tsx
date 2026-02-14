@@ -247,35 +247,36 @@ export default function Home() {
                                     steps.map((step, index) => (
                                         <motion.div
                                             key={step.id}
-                                            initial={{ x: -20, opacity: 0 }}
+                                            initial={{ x: -10, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
-                                            exit={{ scale: 0.9, opacity: 0 }}
+                                            exit={{ scale: 0.95, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
                                             className={cn(
-                                                "group relative flex items-center gap-6 p-6 rounded-3xl border transition-all duration-500 shadow-sm hover:shadow-lg",
+                                                "group relative flex flex-col md:flex-row items-center gap-4 md:gap-6 p-4 md:p-6 rounded-3xl border transition-all duration-300 shadow-sm hover:shadow-lg",
                                                 activeStepIndex === index
-                                                    ? "bg-brand-50 border-brand-200 ring-4 ring-brand-50"
+                                                    ? "bg-brand-50 border-brand-200 ring-2 md:ring-4 ring-brand-50"
                                                     : "bg-white border-neutral-100"
                                             )}
                                         >
-                                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900 text-white text-xs font-black italic">
+                                            <div className="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-neutral-900 text-white text-[10px] md:text-xs font-black italic shrink-0">
                                                 0{index + 1}
                                             </div>
-                                            <div className="w-12 h-12 rounded-2xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-700 group-hover:scale-110 transition-transform">
-                                                <step.icon size={24} />
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-700 group-hover:scale-110 transition-transform shrink-0">
+                                                <step.icon size={20} className="md:w-6 md:h-6" />
                                             </div>
-                                            <div className="flex-1">
-                                                <h3 className="font-bold text-neutral-900 text-lg uppercase tracking-tight">{step.label}</h3>
-                                                <p className="text-xs text-neutral-400 font-medium truncate max-w-xs">{step.prompt}</p>
+                                            <div className="flex-1 text-center md:text-left">
+                                                <h3 className="font-bold text-neutral-900 text-base md:text-lg uppercase tracking-tight">{step.label}</h3>
+                                                <p className="text-[10px] md:text-xs text-neutral-400 font-medium truncate max-w-[200px] md:max-w-xs mx-auto md:mx-0">{step.prompt}</p>
                                             </div>
                                             <button
                                                 onClick={() => removeStep(step.id)}
-                                                className="p-3 text-neutral-300 hover:text-red-500 hover:bg-red-50 rounded-2xl transition-all opacity-0 group-hover:opacity-100"
+                                                className="p-2 md:p-3 text-neutral-300 hover:text-red-500 hover:bg-red-50 rounded-2xl transition-all opacity-100 md:opacity-0 group-hover:opacity-100 absolute top-2 right-2 md:relative md:top-auto md:right-auto"
                                             >
-                                                <Trash2 size={20} />
+                                                <Trash2 size={18} className="md:w-5 md:h-5" />
                                             </button>
 
                                             {index < steps.length - 1 && (
-                                                <div className="absolute -bottom-5 left-20 transform -translate-x-1/2 z-10 text-neutral-200">
+                                                <div className="absolute -bottom-5 left-1/2 md:left-20 transform -translate-x-1/2 z-10 text-neutral-200">
                                                     <ChevronRight className="rotate-90" size={24} />
                                                 </div>
                                             )}
