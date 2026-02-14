@@ -21,7 +21,7 @@ A lightweight, modern workflow automation tool built with **Next.js**, **Puter.j
 3.  **Environment Variables**:
     Create a `.env.local` file and add your MongoDB URI:
     ```env
-    MONGODB_URI=mongodb+srv://new:nagoor@cluster0.px9ktef.mongodb.net/flowrunner?retryWrites=true&w=majority&appName=Cluster0
+    
     ```
 4.  **Run Development Server**:
     ```bash
@@ -48,3 +48,4 @@ A lightweight, modern workflow automation tool built with **Next.js**, **Puter.j
 - Persistence of workflow *templates* (currently workflows are ephemeral until run).
 - Manual re-ordering of steps once added.
 - Advanced parameter tuning for each AI step.
+
