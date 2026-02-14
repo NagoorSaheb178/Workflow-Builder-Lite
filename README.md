@@ -2,7 +2,7 @@
 
 A lightweight, modern workflow automation tool built with **Next.js**, **Puter.js**, and **MongoDB**.
 
-![Workflow Builder Lite Screenshot](/showcase/screenshot.png)
+
 
 ## Features
 - **Workflow Builder**: Create 2-4 step AI-powered chains.
@@ -48,6 +48,7 @@ A lightweight, modern workflow automation tool built with **Next.js**, **Puter.j
 - Persistence of workflow *templates* (currently workflows are ephemeral until run).
 - Manual re-ordering of steps once added.
 - Advanced parameter tuning for each AI step.
+
 
 
 
