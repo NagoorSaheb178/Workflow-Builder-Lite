@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: oklch(0.97 0.01 254);
+  --color-brand-100: oklch(0.94 0.03 254);
+  --color-brand-200: oklch(0.88 0.08 254);
+  --color-brand-300: oklch(0.8 0.14 254);
+  --color-brand-400: oklch(0.7 0.19 254);
+  --color-brand-500: oklch(0.6 0.21 254);
+  --color-brand-600: oklch(0.5 0.22 254);
+  --color-brand-700: oklch(0.4 0.19 254);
+  --color-brand-800: oklch(0.3 0.15 254);
+  --color-brand-900: oklch(0.2 0.1 254);
+
+  --font-sans: "Inter", "Outfit", system-ui, sans-serif;
+  --font-display: "Outfit", "Inter", system-ui, sans-serif;
+
+  --shadow-premium: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+:root {
+  --app-bg: oklch(0.99 0 0);
+  --app-fg: oklch(0.2 0.02 254);
+  --app-accent: oklch(0.6 0.21 254);
+  --app-card-bg: rgba(255, 255, 255, 0.8);
+  --app-card-border: rgba(255, 255, 255, 0.8);
+  --app-glass-bg: rgba(255, 255, 255, 0.6);
+  --app-glass-border: rgba(255, 255, 255, 0.6);
+}
+
+
+
+body {
+  color: var(--app-fg);
+  background: var(--app-bg);
+  background-image:
+    radial-gradient(at 0% 0%, var(--app-bg) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--app-bg) 0px, transparent 50%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer utilities {
+  .glass-premium {
+    background-color: var(--app-glass-bg);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--app-glass-border);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card {
+    background-color: var(--app-card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--app-card-border);
+    box-shadow: var(--shadow-premium);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-brand-600 to-violet-600;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
